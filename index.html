@@ -954,6 +954,30 @@ background-color: hsl(30, 40%, 85%); /* very light brown */
 
     </form>
 </div>
+			<script>
+    // Contact Form
+    const contactForm = document.getElementById('contactForm');
+
+    contactForm.addEventListener('submit', function() {
+
+        // Form data clear before leaving page
+        setTimeout(() => {
+            contactForm.reset();
+        }, 100);
+
+    });
+
+    // Back button te vi form clear
+    window.addEventListener("pageshow", function () {
+        document.getElementById("contactForm").reset();
+    });
+
+    // Update year
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+</script>
+			
 
 <script>
     // Page reload/back te form clear
