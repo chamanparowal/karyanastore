@@ -547,6 +547,73 @@ background-color: hsl(30, 40%, 85%); /* very light brown */
         .btn-direction:hover {
             background: linear-gradient(to right, #1A1A1A, #C4A484);}
         }
+		.add-to-cart{
+    background:#28a745;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.popup{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+}
+
+.popup-content{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    width:350px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    animation:popupShow 0.3s ease;
+}
+
+.icon{
+    font-size:50px;
+}
+
+.popup-content h3{
+    margin:15px 0 10px;
+    color:#333;
+}
+
+.popup-content p{
+    color:#666;
+    line-height:1.5;
+}
+
+.popup-content button{
+    margin-top:15px;
+    background:#007bff;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+@keyframes popupShow{
+    from{
+        transform:scale(0.8);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
         
 </style>
 </head>
@@ -607,16 +674,17 @@ background-color: hsl(30, 40%, 85%); /* very light brown */
                 <div class="product-info">
                     <h3>Premium Basmati Rice</h3>
                     <p class="price">₹120/kg</p>
-                    <button class="add-to-cart" onclick="showMessage()">Add to Cart</button>
+					<button class="add-to-cart" onclick="showPopup()">Add to Cart</button>
 
-<p id="message"></p>
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <span class="icon">⚠️</span>
+        <h3>Online Ordering Unavailable</h3>
+        <p>We're currently not accepting online orders. Please contact us directly for assistance.</p>
+        <button onclick="closePopup()">OK</button>
+    </div>
+</div>
 
-<script>
-function showMessage() {
-    document.getElementById("message").innerHTML =
-    "⚠️ Online purchase is currently unavailable. Please contact us directly.";
-}
-</script>
                 </div>
             </div>
             
@@ -1125,5 +1193,14 @@ function showMessage() {
     };
 	document.getElementById("year").textContent = new Date().getFullYear();
     </script>
+	<script>
+function showPopup(){
+    document.getElementById("popup").style.display = "flex";
+}
+
+function closePopup(){
+    document.getElementById("popup").style.display = "none";
+}
+</script>
 </body>
 </html>
