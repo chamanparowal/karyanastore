@@ -607,7 +607,16 @@ background-color: hsl(30, 40%, 85%); /* very light brown */
                 <div class="product-info">
                     <h3>Premium Basmati Rice</h3>
                     <p class="price">₹120/kg</p>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart" onclick="showMessage()">Add to Cart</button>
+
+<p id="message"></p>
+
+<script>
+function showMessage() {
+    document.getElementById("message").innerHTML =
+    "⚠️ Online purchase is currently unavailable. Please contact us directly.";
+}
+</script>
                 </div>
             </div>
             
